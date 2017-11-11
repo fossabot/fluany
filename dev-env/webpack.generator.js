@@ -7,12 +7,7 @@ import * as Remove from './remove'
 import * as paths from './paths'
 import ManifestPlugin from './manifest/plugin'
 
-// NOTE Style preprocessors
-// If you want to use any of style preprocessor, add related npm package + loader and uncomment following line
 var styleLoaders = {
-  // 'css': ''
-  // 'less': '!less-loader',
-  // 'scss|sass': '!sass-loader',
   'styl': '!stylus-loader'
 }
 
@@ -33,20 +28,14 @@ function makeStyleLoaders () {
 
 function configGenerator (isDevelopment, Manifest) {
   return {
-    /// // Lowlevel config
     cache: isDevelopment,
     debug: isDevelopment,
     devtool: isDevelopment ? 'cheap-module-eval-source-map' : '',
     context: __dirname,
     node: {__dirname: true},
 
-    /// // App config
-
-    // Entry points in your app
-    // There we use scripts from your manifest.json
     entry: {},
 
-    // Output
     output: (function () {
       var output
 
@@ -67,7 +56,6 @@ function configGenerator (isDevelopment, Manifest) {
       return output
     })(),
 
-    // Plugins
     plugins: (function () {
       let plugins = [
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -112,16 +100,9 @@ function configGenerator (isDevelopment, Manifest) {
         ])
       }
 
-      // NOTE Custom plugins
-      // if you need to exclude anything pro loading
-      // plugins.push(new webpack.IgnorePlugin(/^(vertx|somethingelse)$/))
-
       return plugins
     })(),
 
-    // NOTE Override external requires
-    // If you need to change value of required (imported) module
-    // for example if you dont want any module import 'net' for various reason like code only for non browser envirinment
     externals: {
       // net: function() {}
     },
@@ -139,30 +120,13 @@ function configGenerator (isDevelopment, Manifest) {
       ],
       root: [
         path.join(__dirname, '../src')
-      ],
-      // alias: (function () {
-      //   // NOTE Aliasing
-      //   // If you want to override some path with another. Good for importing same version of React across different libraries
-      //   var alias = {
-      //     'components': path.resolve(__dirname, '../src/popup/components'),
-      //     'constants': path.resolve(__dirname, '../src/popup/constants'),
-      //     'actions': path.resolve(__dirname, '../src/popup/actions'),
-      //     'reducers': path.resolve(__dirname, '../src/popup/reducers'),
-      //     'store': path.resolve(__dirname, '../src/popup/store')
-      //   }
-
-      //   return alias})()
+      ]
     },
 
-    // Loaders
     module: {
       loaders: (function () {
         var loaders = []
 
-        // Assets
-
-        // Inline all assets with base64 into javascripts
-        // TODO make and test requiring assets with url
         loaders = loaders.concat([
           {
             test: /\.(png|jpg|jpeg|gif|svg)/,
@@ -205,9 +169,6 @@ function configGenerator (isDevelopment, Manifest) {
             exclude: /node_modules/
           }
         ])
-
-        // NOTE Custom loaders
-        // loaders = loaders.concat([...])
 
         return loaders
       })()

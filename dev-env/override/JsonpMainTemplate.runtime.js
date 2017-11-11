@@ -1,17 +1,8 @@
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-/* globals hotAddUpdateChunk parentHotUpdateCallback document XMLHttpRequest $require$ $hotChunkFilename$ $hotMainFilename$ */
-
 module.exports = function () {
   function webpackHotUpdateCallback (chunkId, moreModules) { // eslint-disable-line no-unused-vars
     hotAddUpdateChunk(chunkId, moreModules)
     if (parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules)
   }
-
-  /// ///////////////// START
-  // Schovi's hotDownloadUpdateChunk overwriter for current context
 
   console.log('>> Using custom overriden hotDownloadUpdateChunk')
 
@@ -34,7 +25,6 @@ module.exports = function () {
    request.open('get', src, true)
    request.send()
  	}
-  /// ///////////////// END
 
   function hotDownloadManifest (callback) { // eslint-disable-line no-unused-vars
     if (typeof XMLHttpRequest === 'undefined') { return callback(new Error('No browser support')) }
