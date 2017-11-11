@@ -11,6 +11,7 @@
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/gijlnmefafhloacckomgabbndcepdnce.svg)](https://chrome.google.com/webstore/detail/fluany/gijlnmefafhloacckomgabbndcepdnce)
 [![GitHub release](https://img.shields.io/github/release/fluany/fluany.svg)](https://github.com/fluany/fluany/releases)
 [![Gitter](https://img.shields.io/gitter/fluany/Lobby.svg)](https://gitter.im/fluany/Lobby)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffluany%2Ffluany.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffluany%2Ffluany?ref=badge_shield)
 
   
 <strong>Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.</strong>
@@ -55,3 +56,7 @@
 ## Articles
 
 - [Productivity in Learning with fluany](https://medium.com/@victorvoid/productivity-in-learning-with-fluany-fd808e1b6edc)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffluany%2Ffluany.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffluany%2Ffluany?ref=badge_large)
